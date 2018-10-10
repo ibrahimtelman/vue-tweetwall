@@ -22,6 +22,8 @@
     "@vue/cli-plugin-eslint": "^3.0.3",
     "@vue/cli-service": "^3.0.3",
     "@vue/eslint-config-airbnb": "^3.0.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "vue-template-compiler": "^2.5.17"
   }
 }

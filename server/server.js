@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
   let twitStream = null;
 
   socket.on('start-stream', () => {
-    twit.stream('statuses/filter', { track: '#computer' }, (stream) => {
+    twit.stream('statuses/filter', { track: '#istsu' }, (stream) => {
       twitStream = stream;
       streamHandler(stream, io);
     });
