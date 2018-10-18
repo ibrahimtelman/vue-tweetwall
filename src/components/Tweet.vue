@@ -1,16 +1,17 @@
 <template>
     <div class="tweet">
-        <div class="avatarContainer">
-            <img :src="tweet.user.profile_image_url" class="avatar" width="70" height="70">
+        <div class="tweet__avatarContainer">
+            <img :src="tweet.user.profile_image_url"
+                 class="tweet__avatarContainer__avatar" width="70" height="70">
         </div>
-        <div class="tweetBody">
-            <div class="tweetHead">
-                    <span class="author">
-                        <b class="name">{{ tweet.user.name }}</b>
-                        <small class="link">@{{ tweet.user.screen_name }}</small>
+        <div class="tweet__body">
+            <div class="tweet__body__info">
+                    <span class="tweet__body__info__author">
+                        <b class="tweet__body__info__name">{{ tweet.user.name }}</b>
+                        <small class="tweet__body__info__link">@{{ tweet.user.screen_name }}</small>
                     </span>
             </div>
-            <div class="tweetContent">
+            <div class="tweet__body__content">
                 {{ tweet.text }}
             </div>
         </div>
@@ -20,6 +21,7 @@
 
 <script>
 export default {
+  name: 'Tweet',
   props: ['tweet'],
   data() {
     return {};
@@ -27,34 +29,38 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
     .tweet{
-        background: #8ea1a1;
+        background: #fff;
         margin: 20px 0;
         padding: 10px 15px;
         display: flex;
         align-items: center;
-    }
-    .avatarContainer {
-        margin-right: 20px;
-        float: left;
-    }
+        border-radius: 4px;
+        box-shadow: 0 1px 1px #00000033;
+        font-family: sans-serif;
 
-    .avatar {
-        margin-top: 3px;
-        border-radius: 50%;
-    }
+        &__avatarContainer {
+            margin-right: 20px;
+            float: left;
 
-    .tweetBody{
-        text-align: left;
-    }
+            &__avatar {
+                margin-top: 3px;
+                border-radius: 50%;
+            }
+        }
 
-    .tweetHead{
-        margin-bottom: 5px;
-    }
+        &__body{
+            text-align: left;
 
-    .tweetHead .author .name{
-        color: #333;
-        margin-right: 10px;
+            &__info{
+                margin-bottom: 5px;
+
+                &__name{
+                    color: #333;
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 </style>

@@ -28,15 +28,17 @@ const io = socket_io.listen(server);
 io.on('connection', (socket) => {
   let twitStream = null;
 
-  socket.on('start-stream', () => {
-    twit.stream('statuses/filter', { track: '#istsu' }, (stream) => {
+  socket.on('start-stream', (data, fn) => {
+    twit.stream('statuses/filter', { track: data.query }, (stream) => {
       twitStream = stream;
       streamHandler(stream, io);
     });
+    fn(true);
   });
 
-  socket.on('stop-stream', () => {
+  socket.on('stop-stream', (data, fn) => {
     twitStream.destroy();
+    fn(true);
   });
 
   socket.on('disconnect', () => {
