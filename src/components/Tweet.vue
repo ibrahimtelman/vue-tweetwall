@@ -12,7 +12,7 @@
                     </span>
             </div>
             <div class="tweet__body__content">
-                {{ tweet.text }}
+                {{ tweet.extended_tweet ? tweet.extended_tweet.full_text : tweet.text }}
             </div>
         </div>
 
