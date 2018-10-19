@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      socket: io('//:8081'),
+      socket: io(),
       tweets: [],
       is_run: false,
       search: '',
