@@ -1,14 +1,17 @@
 import express from 'express';
 import http from 'http';
 import twitter from 'ntwitter';
+import path from 'path';
 import socket_io from 'socket.io';
 import streamHandler from './utils/streamHandler';
 
 const app = express();
 const port = process.env.PORT || 8081;
 
+app.use(express.static('dist'));
+
 app.get('/', (req, res) => {
-  res.send('hello world');
+  res.sendfile(path.resolve('./dist/index.html'));
 });
 
 const twit = twitter({
