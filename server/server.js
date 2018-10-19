@@ -15,10 +15,10 @@ app.get('/', (req, res) => {
 });
 
 const twit = twitter({
-  consumer_key: 'eODYttL7ORTCgSlVXSqaRDaNq',
-  consumer_secret: 'JBLgjPc2c50AKmlSUBlkGWSdm1xw8ZjINsiaaIxKgJj5FDnxbh',
-  access_token_key: '480235334-aa0n75zpTcwbWJGOgUNx3RYy3KSmuf6LOVh7l3eV',
-  access_token_secret: '15gFUP32k8Nw9SwbbUvJkZQlubO5jM4ABTLlOTq1csiqK',
+  consumer_key: process.env.ConsumerKey || '',
+  consumer_secret: process.env.ConsumerSecret || '',
+  access_token_key: process.env.AccessTokenKey || '',
+  access_token_secret: process.env.AccessTokenSecret || '',
 });
 
 const server = http.createServer(app)
@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
   socket.on('start-stream', (data, fn) => {
     twit.stream('statuses/filter', { track: data.query }, (stream) => {
       twitStream = stream;
-      streamHandler(stream, io);
+      streamHandler(stream, socket);
     });
     fn(true);
   });
