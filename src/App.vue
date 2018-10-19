@@ -65,7 +65,7 @@ export default {
         text-align: center;
         height: 100%;
         margin: 0;
-        background: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%) no-repeat fixed;
+        background: linear-gradient(-225deg, #9fe4ff 0%, #3fc1df 48%, #015888 100%) no-repeat fixed;
     }
 
     .container {
