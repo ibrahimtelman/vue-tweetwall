@@ -5,7 +5,9 @@
                 <input type="text" class="controlBar__searchInput"
                        placeholder="Search" v-model="search"
                        :disabled="is_run">
-                <button class="controlBar__action" v-on:click="toggleServer">
+                <button class="controlBar__action"
+                        :disabled="search===''"
+                        v-on:click="toggleServer">
                     {{ is_run ? '&#10074;&#10074;' : '&#9658;'}}
                 </button>
             </div>
@@ -90,7 +92,7 @@ export default {
             border-bottom: 1px solid #999;
             font-size: 16px;
 
-            &:disabled{
+            &:disabled {
                 opacity: 0.5;
                 border-bottom-style: dashed;
             }
@@ -110,6 +112,12 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: opacity .3s;
+
+            &:disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
         }
     }
 
