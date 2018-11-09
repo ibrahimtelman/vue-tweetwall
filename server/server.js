@@ -4,6 +4,7 @@ import twitter from 'ntwitter';
 import path from 'path';
 import socket_io from 'socket.io';
 import streamHandler from './utils/streamHandler';
+import twitter_config from './configs/twitter';
 
 const app = express();
 const port = process.env.PORT || 8081;
@@ -14,12 +15,7 @@ app.get('/', (req, res) => {
   res.sendfile(path.resolve('./dist/index.html'));
 });
 
-const twit = twitter({
-  consumer_key: process.env.ConsumerKey || '',
-  consumer_secret: process.env.ConsumerSecret || '',
-  access_token_key: process.env.AccessTokenKey || '',
-  access_token_secret: process.env.AccessTokenSecret || '',
-});
+const twit = twitter(twitter_config);
 
 const server = http.createServer(app)
   .listen(port, () => {
