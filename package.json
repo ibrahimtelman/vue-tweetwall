@@ -7,6 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+   "author": "Ibrahim Telman",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
     "ntwitter": "^0.5.0",
