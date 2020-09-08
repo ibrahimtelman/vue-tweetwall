@@ -1,6 +1,3 @@
 module.exports = {
-  presets: [
-    'es2015',
-    '@vue/app',
-  ],
+  presets: ["@vue/app"],
 };
