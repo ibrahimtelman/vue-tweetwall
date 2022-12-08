@@ -10,7 +10,7 @@
   "author": "Ibrahim Telman",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "ntwitter": "^0.5.0",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
